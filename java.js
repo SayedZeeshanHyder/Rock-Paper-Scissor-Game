@@ -1,23 +1,11 @@
 let play1=0,play2=0;
+let q=0;
+let x=0,y=0;
 function play()
 {
-    let x=0,y=0;
-    let a=Math.random()*10;
+    if(q==1)
+    {
     let b=Math.random()*10;
-    if(a>0 && a<4)
-    {
-        x=1; //scissor
-        document.getElementById("p1").src="https://tl.vhv.rs/dpng/s/535-5357819_rock-paper-scissors-png-transparent-png.png";
-    }
-    else if(a>3 && a<7)
-    {
-        x=2; //Paper
-        document.getElementById("p1").src="https://www.vhv.rs/dpng/d/490-4906131_rock-paper-scissors-clipart-rock-paper-scissors-png.png";
-    }
-    else{
-        x=3; //Rock
-        document.getElementById("p1").src="https://tl.vhv.rs/dpng/s/535-5354119_paper-clipart-scissors-rock-paper-scissors-jpg-hd.png";
-    }
     if(b>0 && b<4)
     {
         y=1;
@@ -46,6 +34,38 @@ function play()
         document.getElementById("score").innerHTML="Tie";
     }
     document.getElementById("winner").innerHTML= play1 + " - " + play2;
+    }
+    else{
+        document.getElementById("score").innerHTML="Select Your Option first";
+    }
+}
+function player1scissors()
+{
+    document.getElementById("score").innerHTML="Player 1 Selected Scissor!";
+    x=1; //scissor
+    q=1;
+    document.getElementById("p1").src="https://tl.vhv.rs/dpng/s/535-5357819_rock-paper-scissors-png-transparent-png.png";
+}
+function player1paper()
+{
+    document.getElementById("score").innerHTML="Player 1 Selected Paper!";
+    x=2; //Paper
+    q=1;
+    document.getElementById("p1").src="https://www.vhv.rs/dpng/d/490-4906131_rock-paper-scissors-clipart-rock-paper-scissors-png.png";
+}
+function player1rock()
+{
+    document.getElementById("score").innerHTML="Player 1 Selected Rock!";
+    x=3; //Rock
+    q=1;
+    document.getElementById("p1").src="https://tl.vhv.rs/dpng/s/535-5354119_paper-clipart-scissors-rock-paper-scissors-jpg-hd.png";
+}
+function nextgame()
+{
+    document.getElementById("p1").src="";
+    document.getElementById("p2").src="";
+    q=0;
+    document.getElementById("score").innerHTML="";
 }
 function reset()
 {
